@@ -10,7 +10,7 @@ source:
   sha256: 35be549358ba89fdcc6bc134ea7fd00b88e985f95908682880349474ce4b7c9f
 
 build:
-  number: 0
+  number: 1
   python:
     version_independent: true
   skip:
@@ -63,7 +63,7 @@ tests:
     requirements:
       run:
         - pytest
-        - astropy
+        - astropy-base
         - fitsio
         - aioftp
         - python
