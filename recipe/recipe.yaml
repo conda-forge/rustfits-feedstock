@@ -32,6 +32,8 @@ build:
         - set PYTHONIOENCODING="UTF-8"
         - set TMPDIR=tmpbuild_%PY_VER%
         - FOR %%w in (*.whl) DO %PYTHON% -m pip install %%w --no-clean --no-deps -vv --no-build-isolation
+        - cd ..
+        - cd ..
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
 
 requirements:
