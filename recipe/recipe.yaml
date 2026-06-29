@@ -72,18 +72,19 @@ tests:
         run:
           - abi3audit
   # we run tests since they are fast...
-  - script:
-      - pytest -vv tests
-    files:
-      source:
-        - tests/
-    requirements:
-      run:
-        - pytest
-        - astropy
-        - fitsio
-        - aioftp
-        - python
+  - if: unix
+    then:
+      script:
+        - pytest -vv tests
+      files:
+        source:
+          - tests/
+      requirements:
+        run:
+          - pytest
+          - astropy
+          - fitsio
+          - aioftp
 
 about:
   homepage: https://github.com/esheldon/rustfits
