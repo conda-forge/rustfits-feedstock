@@ -172,6 +172,3 @@ Feedstock Maintainers
 * [@beckermr](https://github.com/beckermr/)
 * [@esheldon](https://github.com/esheldon/)
 
-
-<!-- dummy commit to enable rerendering -->
-
