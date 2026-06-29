@@ -10,7 +10,7 @@ source:
   sha256: 5e911ae939b3b7e542bfde788335a26220ec25aff0cd6faefacbd4bdd1aae6b2
 
 build:
-  number: 0
+  number: 1
   python:
     version_independent: true
   skip:
