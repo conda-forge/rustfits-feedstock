@@ -70,7 +70,7 @@ tests:
       run:
         - abi3audit
   # we run tests since they are fast...
-  - if: unix and target_platform != "linux_aarch64"
+  - if: unix and target_platform != "linux-aarch64"
     then:
       script:
         - pytest -vv tests
