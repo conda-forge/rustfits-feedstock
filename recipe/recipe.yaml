@@ -60,17 +60,15 @@ tests:
       python_version:
         - ${{ python_min }}.*
         - "*"
-  - if: build_platform == target_platform
-    then:
-      script:
-        - if: unix
-          then:
-            - abi3audit ${SP_DIR}/rustfits/*.so -s -v --assume-minimum-abi3 ${{ python_min }}
-          else:
-            - abi3audit %SP_DIR%/rustfits/_rust.pyd -s -v --assume-minimum-abi3 ${{ python_min }}
-      requirements:
-        run:
-          - abi3audit
+  - script:
+      - if: unix
+        then:
+          - abi3audit ${SP_DIR}/rustfits/*.so -s -v --assume-minimum-abi3 ${{ python_min }}
+        else:
+          - abi3audit %SP_DIR%/rustfits/_rust.pyd -s -v --assume-minimum-abi3 ${{ python_min }}
+    requirements:
+      run:
+        - abi3audit
   # we run tests since they are fast...
   - if: unix
     then:
