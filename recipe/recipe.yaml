@@ -1,5 +1,5 @@
 context:
-  version: "0.1.4"
+  version: "0.1.5"
 
 package:
   name: rustfits
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/esheldon/rustfits/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 5e911ae939b3b7e542bfde788335a26220ec25aff0cd6faefacbd4bdd1aae6b2
+  sha256: 7b0f806670fbcb5587eb4f7e1a614f6f2f1b57624b26d935c729fd7efc507acf
 
 build:
-  number: 1
+  number: 0
   python:
     version_independent: true
   skip:
@@ -19,13 +19,10 @@ build:
     - if: unix
       then:
         - maturin build -v -j ${CPU_COUNT} --release --strip --manylinux off --interpreter=${PYTHON} --features pyo3/abi3-py${{ python_min|replace(".", "") }}
+        - ${PYTHON} -m pip install ${SRC_DIR}/target/wheels/rustfits*.whl --no-deps -vv --no-build-isolation
       else:
         - maturin build -v -j %CPU_COUNT% --release --strip --manylinux off --interpreter=%PYTHON% --features pyo3/abi3-py${{ python_min|replace(".", "") }}
     # ^add this flag for cross-compile later maybe? -Zfeatures=itarget
-    - if: unix
-      then:
-        - ${PYTHON} -m pip install ${SRC_DIR}/target/wheels/rustfits*.whl --no-deps -vv --no-build-isolation
-      else:
         - cd target/wheels
         - chcp 65001
         - set PYTHONUTF8=1
