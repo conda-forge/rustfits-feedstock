@@ -1,5 +1,5 @@
 context:
-  version: "0.1.7"
+  version: "0.1.8"
 
 package:
   name: rustfits
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/esheldon/rustfits/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: a0cf93703546c1d701487da3ca39fd94c393f8998fda8256d24607a068c0d673
+  sha256: 3e1750f3e39c3625392781c4178a948c31f3eec88daf7cdfa5917ee58ca5c279
 
 build:
   number: 0
